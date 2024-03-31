@@ -1,7 +1,6 @@
 FROM mcr.microsoft.com/dotnet/sdk:6.0-jammy as build
 WORKDIR /src
 COPY . /src
-RUN curl https://api.nuget.org/v3/index.json -k
 RUN dotnet restore ./WebApplication_DIT_Docker/WebApplication_DIT_Docker.csproj 
 RUN dotnet build ./WebApplication_DIT_Docker/WebApplication_DIT_Docker.csproj --no-restore --configuration Release
 RUN dotnet publish ./WebApplication_DIT_Docker/WebApplication_DIT_Docker.csproj --no-build --configuration Release -o /src/publish
