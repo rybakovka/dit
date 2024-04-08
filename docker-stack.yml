@@ -1,0 +1,11 @@
+version: "3.9"
+services:
+  nginx-ws:
+    image: nginx-ws:1.0
+    ports:  
+      - "80:80"
+    depends_on: 
+      - net-app 
+  net-app:
+    image: net-app:1.0
+
