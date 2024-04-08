@@ -1,13 +1,17 @@
-version: "3.8"
+version: "3.9"
 services:
+  nginx-ws:
+    build:
+      context: ./
+      dockerfile: nginxDockerfile
+    image: nginx-ws:1.0
+    container_name: nginx-ws
   net-app:
     build:
       context: ./
-      dockerfile: Dockerfile
+      dockerfile: weatherDockerfile
     image: net-app:1.0
     container_name: net-app
-    ports: 
-      - "5000:80"
     deploy:
       resources:
         limits:
